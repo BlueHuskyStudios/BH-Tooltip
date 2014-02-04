@@ -1,0 +1,195 @@
+.tooltip-animate [data-tooltip-top],
+.tooltip-animate [data-tooltip-left],
+.tooltip-animate [data-tooltip-right],
+.tooltip-animate [data-tooltip-bottom],
+.tooltip-animate [data-tooltip-top]::before,
+.tooltip-animate [data-tooltip-left]::before,
+.tooltip-animate [data-tooltip-right]::before,
+.tooltip-animate [data-tooltip-bottom]::before,
+.tooltip-animate [data-tooltip-top]::after,
+.tooltip-animate [data-tooltip-left]::after,
+.tooltip-animate [data-tooltip-right]::after,
+.tooltip-animate [data-tooltip-bottom]::after {
+	/**** BEGIN Unifying animation set ****/
+	
+	-webkit-transition-duration:0.5s;
+	-moz-transition-duration:0.5s;
+	-ms-transition-duration:0.5s;
+	-o-transition-duration:0.5s;
+	transition-duration:0.5s;
+	-webkit-transition-property: -webkit-transform, opacity;
+	-moz-transition-property: -moz-transform, opacity;
+	-ms-transition-property: -ms-transform, opacity;
+	-o-transition-property: -o-transform, opacity;
+	transition-property: transform, opacity;
+	-webkit-transition-timing-function:ease-in-out;
+	-moz-transition-timing-function:ease-in-out;
+	-ms-transition-timing-function:ease-in-out;
+	-o-transition-timing-function:ease-in-out;
+	transition-timing-function:ease-in-out;
+	/**** END Unifying animation set ****/
+}
+
+
+[data-tooltip-top],
+[data-tooltip-left],
+[data-tooltip-right],
+[data-tooltip-bottom] {
+	position: relative;
+	display: inline-block;
+}
+[data-tooltip-top]:not(:hover):not(:focus):not(.tooltip-shown)::after,
+[data-tooltip-left]:not(:hover):not(:focus):not(.tooltip-shown)::after,
+[data-tooltip-right]:not(:hover):not(:focus):not(.tooltip-shown)::after,
+[data-tooltip-bottom]:not(:hover):not(:focus):not(.tooltip-shown)::after,
+[data-tooltip-top]:not(:hover):not(:focus):not(.tooltip-shown)::before,
+[data-tooltip-left]:not(:hover):not(:focus):not(.tooltip-shown)::before,
+[data-tooltip-right]:not(:hover):not(:focus):not(.tooltip-shown)::before,
+[data-tooltip-bottom]:not(:hover):not(:focus):not(.tooltip-shown)::before/*,
+The following are technically not semantic, but would be preferred to ensure tooltip doesn't stay on-screen when moused over:
+[data-tooltip-top]::after:hover, [data-tooltip-top]::after:focus,
+[data-tooltip-left]::after:hover, [data-tooltip-left]::after:focus,
+[data-tooltip-right]::after:hover, [data-tooltip-right]::after:focus,
+[data-tooltip-bottom]::after:hover, [data-tooltip-bottom]::after:focus,
+[data-tooltip-top]::before:hover, [data-tooltip-top]::before:focus,
+[data-tooltip-left]::before:hover, [data-tooltip-left]::before:focus,
+[data-tooltip-right]::before:hover, [data-tooltip-right]::before:focus,
+[data-tooltip-bottom]::before:hover, [data-tooltip-bottom]::before:focus*/ {
+	display: none;
+	visibility: hidden;
+	opacity: 0;
+	z-index: 1000000;
+}
+[data-tooltip-top]::before,
+[data-tooltip-left]::before,
+[data-tooltip-right]::before,
+[data-tooltip-bottom]::before,
+[data-tooltip-top]::after,
+[data-tooltip-left]::after,
+[data-tooltip-right]::after,
+[data-tooltip-bottom]::after {
+	position: absolute;
+	z-index: 1000001;
+}
+[data-tooltip-top]:not(:hover):not(:focus):not(.tooltip-shown)::after,
+[data-tooltip-top]:not(:hover):not(:focus):not(.tooltip-shown)::before {
+	-webkit-transform: translateY(1em);
+	-moz-transform: translateY(1em);
+	-ms-transform: translateY(1em);
+	-o-transform: translateY(1em);
+	transform: translateY(1em);
+}
+	[data-tooltip-top]:hover::after,
+	[data-tooltip-top]:hover::before,
+	[data-tooltip-bottom]:hover::after,
+	[data-tooltip-bottom]:hover::before {
+		-webkit-transform: translateY(0em);
+		-moz-transform: translateY(0em);
+		-ms-transform: translateY(0em);
+		-o-transform: translateY(0em);
+		transform: translateY(0em);
+	}
+[data-tooltip-left]:not(:hover):not(:focus):not(.tooltip-shown)::after,
+[data-tooltip-left]:not(:hover):not(:focus):not(.tooltip-shown)::before {
+	-webkit-transform: translateX(1em);
+	-moz-transform: translateX(1em);
+	-ms-transform: translateX(1em);
+	-o-transform: translateX(1em);
+	transform: translateX(1em);
+}
+	[data-tooltip-left]:hover::after,
+	[data-tooltip-left]:hover::before,
+	[data-tooltip-right]:hover::after,
+	[data-tooltip-right]:hover::before {
+		-webkit-transform: translateX(0em);
+		-webkit-transform: translateX(0em);
+		-ms-transform: translateX(0em);
+		-o-transform: translateX(0em);
+		transform: translateX(0em);
+	}
+[data-tooltip-right]:not(:hover):not(:focus):not(.tooltip-shown)::after,
+[data-tooltip-right]:not(:hover):not(:focus):not(.tooltip-shown)::before {
+	-webkit-transform: translateX(-1em);
+	-moz-transform: translateX(-1em);
+	-ms-transform: translateX(-1em);
+	-o-transform: translateX(-1em);
+	transform: translateX(-1em);
+}
+[data-tooltip-bottom]:not(:hover):not(:focus):not(.tooltip-shown)::after,
+[data-tooltip-bottom]:not(:hover):not(:focus):not(.tooltip-shown)::before {
+	-webkit-transform: translateY(-1em);
+	-moz-transform: translateY(-1em);
+	-ms-transform: translateY(-1em);
+	-o-transform: translateY(-1em);
+	transform: translateY(-1em);
+}
+[data-tooltip-top]::after,
+[data-tooltip-left]::after,
+[data-tooltip-right]::after,
+[data-tooltip-bottom]::after {
+	background: rgba(0,0,0, 0.75);
+	border: #000 solid 0.1em;
+	border-radius: 0.15em;
+	box-shadow: 0 .1em .2em rgba(0,0,0, 0.5);
+	color: #FFF;
+	padding: 0.25em 0.5em;
+	white-space: nowrap;
+	margin: 0;
+}
+[data-tooltip-top]::after {
+	content: attr(data-tooltip-top);
+	bottom: calc(100% + .75em);
+	left: -1.25em;
+}
+[data-tooltip-left]::after {
+	content: attr(data-tooltip-left);
+	right: calc(100% + .75em);
+	top: calc(50% - 1em);
+}
+[data-tooltip-right]::after {
+	content: attr(data-tooltip-right);
+	left: calc(100% + .75em);
+	top: calc(50% - 1em);
+}
+[data-tooltip-bottom]::after {
+	content: attr(data-tooltip-bottom);
+	top: calc(100% + .75em);
+	left: -1.25em;
+}
+
+
+[data-tooltip-top]::before,
+[data-tooltip-left]::before,
+[data-tooltip-right]::before,
+[data-tooltip-bottom]::before {
+	border-style: solid;
+	border-width: .5em;
+	border-color: transparent;
+	content: "\200D";
+	height: 0;
+	width: 0;
+}
+[data-tooltip-top]::before {
+	border-bottom-width: 0;
+	border-top-color: #000;
+	bottom: calc(100% + .3em);
+	left: 0;
+}
+[data-tooltip-left]::before {
+	border-right-width: 0;
+	border-left-color: #000;
+	right: calc(100% + .3em);
+	top: calc(50% - .5em);
+}
+[data-tooltip-right]::before {
+	border-left-width: 0;
+	border-right-color: #000;
+	left: calc(100% + .3em);
+	top: calc(50% - .5em);
+}
+[data-tooltip-bottom]::before {
+	border-top-width: 0;
+	border-bottom-color: #000;
+	top: calc(100% + .3em);
+	left: 0;
+}
